@@ -1,4 +1,6 @@
 <script>
+import {localStorage} from '../service/localStorage'
+import {authToken} from '../service/api'
 
 export default {
     data() {
@@ -11,10 +13,19 @@ export default {
     },
     methods: {
         sendForm() {
+            authToken.login(this.form.username, this.form.password).then((response) => {
+        if(response.status == 200) {
+            let responseData = response.data;
+            let token = responseData.accessToken;
+            localStorage.set('accessToken', token);
 
         }
-    }
+      });
+    },
 }
+}
+
+
 </script>
 
 <template>
