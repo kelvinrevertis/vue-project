@@ -1,8 +1,9 @@
 <script>
-import {localStorage} from '../service/localStorage'
-import {authToken} from '../service/api'
+import {localStorage} from '../../service/localStorage'
+import {authToken} from '../../service/api'
 
 export default {
+    name: 'Login',
     data() {
         return {
             form: {
@@ -18,6 +19,7 @@ export default {
             let responseData = response.data;
             let token = responseData.accessToken;
             localStorage.set('accessToken', token);
+            window.location.href('/listar-contatos')
 
         }
       });
@@ -33,6 +35,8 @@ export default {
     <input type="text" id="username" placeholder="Login">
     <br>
     <input type="password" id="password" placeholder="Password">
+    <br>
+    <button>Entrar</button>
 </template>
 
 <style>
