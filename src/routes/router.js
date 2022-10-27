@@ -11,9 +11,9 @@ export default createRouter({
             component: Login
         },
         {
-            path: '/contatos',
+            path: '/listar-contatos',
             name: 'Contatos',
-            component: Contatos
+            component: PrivatePage,
         }
     ],
 })
