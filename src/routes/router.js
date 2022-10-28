@@ -1,19 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../components/pages/LoginPage.vue'
-import Contatos from '../components/pages/PrivatePage.vue'
+import PrivatePage from '../components/pages/PrivatePage.vue'
+import Private from '../components/pages/Private.vue'
 
-export default createRouter({
-    history: createWebHistory(),
-    routes: [
+
+const routes = [
         {
             path: '/',
             name: 'Login',
             component: Login
         },
         {
-            path: '/listar-contatos',
+            path: '/contatos',
             name: 'Contatos',
             component: PrivatePage,
+        },
+        {
+            path: '/private',
+            name: 'Private',
+            component: Private,
         }
-    ],
-})
+            
+    ]
+
+const router = createRouter({ history: createWebHistory(), routes });
+
+export default router;
