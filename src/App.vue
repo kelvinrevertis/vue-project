@@ -1,12 +1,11 @@
 <template>
   <div>
-    <LoginPage/>
-    <!-- <PrivatePage/> -->
+ <router-view />
   </div>
 </template>
 <script>
 import LoginPage from './components/pages/LoginPage.vue';
-//import PrivatePage from './components/pages/PrivatePage.vue';
+
 
 
 

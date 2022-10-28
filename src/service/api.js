@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const api = axios.create({
-    baseURL: "",
+    baseURL: "metawaydemo.vps-kinghost.net:8485",
     headers: {
         Accept: "application/json",
         Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -10,7 +10,7 @@ export const api = axios.create({
 
 export const authToken =  {
     login(username, password) {
-        return api.post('/auth/login', {
+        return api.post('/auth/login',{
             username: username,
             password: password
         });

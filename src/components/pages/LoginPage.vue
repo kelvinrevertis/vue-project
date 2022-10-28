@@ -1,19 +1,16 @@
 <template>
-    <slot>
-        <div>Teste</div>
-    </slot>
     <div>
         <h1 class="logo">MetaWay</h1><br>
     </div>
     <div>
-        <input type="text" id="username" placeholder="Login" required v-model="form.username">
-        <br>
-        <input type="text" id="password" placeholder="Password" required v-model="form.password">
-        <br>
-        <button type="submit" @click="sendForm">Entrar</button>
+        <form @submit.prevent="sendForm">
+            <input type="text" id="username" placeholder="Login" required v-model="form.username">
+            <br>
+            <input type="text" id="password" placeholder="Password" required v-model="form.password">
+            <br>
+            <button type="submit">Entrar</button>
+        </form>
     </div>
-    <button @click="changePage">Contatos</button>
-    <router-link to="/private">Contatos</router-link>
 </template>
 
 <script>
@@ -38,14 +35,9 @@ export default {
                     let token = responseData.accessToken;
                     localStorage.set('accessToken', token);
                     window.location.href = '/contatos'
-                    //this.$router.push("/listar-contatos");
                 }
             });
         },
-        changePage(){
-            this.$router.push('/private')
-            console.log("Teste")
-        }
     },
 }
 
